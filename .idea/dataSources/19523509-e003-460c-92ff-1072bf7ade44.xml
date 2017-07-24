@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db_vip@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="db_vip">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mybatis"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <table id="7" parent="2" name="admin"/>
+    <table id="8" parent="2" name="chat"/>
+    <table id="9" parent="2" name="collection"/>
+    <table id="10" parent="2" name="comment"/>
+    <table id="11" parent="2" name="follow"/>
+    <table id="12" parent="2" name="freeze"/>
+    <table id="13" parent="2" name="replycomment"/>
+    <table id="14" parent="2" name="upvote"/>
+    <table id="15" parent="2" name="vip"/>
+    <table id="16" parent="2" name="weibo"/>
+    <column id="17" parent="7" name="adminId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="18" parent="7" name="adminnumber">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="7" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="20" parent="7" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>adminId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="8" name="chatId">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="22" parent="8" name="userId">
+      <Position>2</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="8" name="by_userId">
+      <Position>3</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="8" name="message">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="8" name="dateLine">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="8" name="adminchat">
+      <Position>6</Position>
+      <DataType>int(1) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="8" name="unread">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="8" name="delete_user">
+      <Position>8</Position>
+      <DataType>int(1) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="8" name="delete_by_user">
+      <Position>9</Position>
+      <DataType>int(1) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="30" parent="8" name="by_userId">
+      <ColNames>by_userId</ColNames>
+    </index>
+    <index id="31" parent="8" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="32" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>chatId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="8" name="chat_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="34" parent="8" name="chat_ibfk_2">
+      <ColNames>by_userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="35" parent="9" name="collectionId">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="9" name="userId">
+      <Position>2</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="9" name="weiboId">
+      <Position>3</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="38" parent="9" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="39" parent="9" name="weiboId">
+      <ColNames>weiboId</ColNames>
+    </index>
+    <key id="40" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>collectionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="41" parent="9" name="collection_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="42" parent="9" name="collection_ibfk_2">
+      <ColNames>weiboId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>weibo</RefTableName>
+      <RefColNames>weiboId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="43" parent="10" name="commentId">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="10" name="userId">
+      <Position>2</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="10" name="weiboId">
+      <Position>3</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="10" name="content">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="10" name="dateLine">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="10" name="replyComment">
+      <Position>6</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="49" parent="10" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="50" parent="10" name="weiboId">
+      <ColNames>weiboId</ColNames>
+    </index>
+    <key id="51" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>commentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="52" parent="10" name="comment_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="53" parent="10" name="comment_ibfk_2">
+      <ColNames>weiboId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>weibo</RefTableName>
+      <RefColNames>weiboId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="54" parent="11" name="followId">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="55" parent="11" name="userId">
+      <Position>2</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="11" name="by_userId">
+      <Position>3</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="57" parent="11" name="by_userId">
+      <ColNames>by_userId</ColNames>
+    </index>
+    <index id="58" parent="11" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="59" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>followId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="60" parent="11" name="follow_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="61" parent="11" name="follow_ibfk_2">
+      <ColNames>by_userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="62" parent="12" name="freezeId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="63" parent="12" name="userId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="12" name="startTime">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="12" name="endTime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="66" parent="12" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="67" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>freezeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="68" parent="12" name="freeze_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="69" parent="13" name="replyCommentId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="70" parent="13" name="userId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="13" name="weiboId">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="13" name="commentId">
+      <Position>4</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="13" name="content">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="13" name="dateLine">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="75" parent="13" name="commentId">
+      <ColNames>commentId</ColNames>
+    </index>
+    <index id="76" parent="13" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="77" parent="13" name="weiboId">
+      <ColNames>weiboId</ColNames>
+    </index>
+    <key id="78" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>replyCommentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="79" parent="13" name="replycomment_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="80" parent="13" name="replycomment_ibfk_2">
+      <ColNames>weiboId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>weibo</RefTableName>
+      <RefColNames>weiboId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="81" parent="13" name="replycomment_ibfk_3">
+      <ColNames>commentId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>comment</RefTableName>
+      <RefColNames>commentId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="82" parent="14" name="upvoteId">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="14" name="userId">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="14" name="weiboId">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="85" parent="14" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="86" parent="14" name="weiboId">
+      <ColNames>weiboId</ColNames>
+    </index>
+    <key id="87" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>upvoteId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="88" parent="14" name="upvote_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="89" parent="14" name="upvote_ibfk_2">
+      <ColNames>weiboId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>weibo</RefTableName>
+      <RefColNames>weiboId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="90" parent="15" name="userId">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="91" parent="15" name="phonenumber">
+      <Position>2</Position>
+      <DataType>varchar(12)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="92" parent="15" name="username">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="15" name="email">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="15" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="15" name="realname">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="96" parent="15" name="sex">
+      <Position>7</Position>
+      <DataType>varchar(1)|0</DataType>
+    </column>
+    <column id="97" parent="15" name="birthday">
+      <Position>8</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="98" parent="15" name="qq">
+      <Position>9</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="99" parent="15" name="address">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="100" parent="15" name="follow">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="15" name="fans">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="15" name="weibo">
+      <Position>13</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="15" name="login">
+      <Position>14</Position>
+      <DataType>int(1) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="104" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="105" parent="16" name="weiboId">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="106" parent="16" name="userId">
+      <Position>2</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="16" name="content">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="16" name="dateLine">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="109" parent="16" name="upvote">
+      <Position>5</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="16" name="comment">
+      <Position>6</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="16" name="recommend">
+      <Position>7</Position>
+      <DataType>int(1) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="112" parent="16" name="userId">
+      <ColNames>userId</ColNames>
+    </index>
+    <key id="113" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>weiboId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="114" parent="16" name="weibo_ibfk_1">
+      <ColNames>userId</ColNames>
+      <RefSchemaName>db_vip</RefSchemaName>
+      <RefTableName>vip</RefTableName>
+      <RefColNames>userId</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
