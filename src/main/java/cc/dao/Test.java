@@ -10,6 +10,5 @@ public class Test {
          System.out.println(System.getProperty("user.dir"));
          System.out.println(directory.getCanonicalPath());//获取标准的路径 
          System.out.println(directory.getAbsolutePath());//获取绝对路径
-        System.out.println(directory.getAbsolutePath());//获取绝对路径
 	}
 }
